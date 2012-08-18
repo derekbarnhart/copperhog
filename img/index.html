@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile-1.1.0.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+        <script>
+        	
+        	function sendRequest(email,raffle_id)
+        	{
+        		
+        		email = "derekbarnhart@gmail.com";
+        		raffle_id = 1
+        		
+	        	$.ajax({
+	        		url: "http://copperhog.nfshost.com/controller.php?email="+email+"&raffle_id="+raffle_id,
+	        		dataType: 'json',
+	        		success: function(data, textStatus, jqXHR)
+	        		{
+	        			switch(data.response_code)
+	        			{
+	        			
+		        			//define("ERROR_EMAIL", 201);
+							//define("ERROR_RAFFLE", 202);
+							//define("SCANNED", -1);
+							//define("LOSE", 0);
+							//define("WIN_1", 1);
+							//define("WIN_2", 2);
+		        			
+		        			case 1:// Primary Win
+		        			$.mobile.changePage($("#won1"));
+		        			
+		        			break;
+		        			
+		        			case 2:// Secondary Win
+		        			$.mobile.changePage($("#won2"));
+		        			
+		        			break;
+		        			
+		        			case -1:// Already Scanned
+		        			alert("Woops.. Looks like you already played! Check back next month for another chance to win!");
+		        			break;
+		        
+		        			case 0:// Lose
+		        			$.mobile.changePage($("#lost"));
+		        			
+		        			break;
+		        			
+		        			case 201:
+		        			
+		        			alert("Yikes! Double check your email. It gave our servers an issue");
+		        			
+		        			break;
+		        			
+		        			case 202:
+		        			
+		        			break;
+	        			}
+	        			
+	        			console.log(data);
+	        			
+	        		}
+	        		
+	        	});
+	        }
+        </script>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" id="landing" data-theme="a">
+            <div data-role="content" style="padding: 15px">
+                <div style="width: 288px; height: 200px; margin-left:auto; margin-right:auto;">
+                    <img src="img/landing_main.png" alt="image" />
+                </div>
+                <h2 style="text-align:center;">
+                     2 tickets to super awesome fest
+                </h2>
+                   <div style="width: 128px; height: 128px; margin-left:auto; margin-right:auto;">
+               	 <img src="img/icon_tickets.png" alt="image" />
+                </div>
+              <!--  <input type="submit" data-icon="check" data-iconpos="left" value="Enter with Facebook" data-theme="b"/>
+                <h2 style="text-align:center;">or</h2> -->
+                <div data-role="fieldcontain">
+    				<label for="name">Email</label>
+    				<input type="email" name="email" id="email" value=""  data-theme="e"/>
+				 <input type="submit" onClick="sendRequest(1,1)" data-icon="check" data-iconpos="left" value="Enter with Email" data-theme="b"/>
+				</div>
+            </div>
+        </div>
+        
+          <div data-role="page" id="won1" data-theme="a">
+            <div data-role="content" style="padding: 15px">
+                
+                    <h1 style="text-align:center;">YOU WON!!</h1>
+               
+               <div style="width: 128px; height: 128px; margin-left:auto; margin-right:auto;">
+               	 <img src="img/icon_tickets.png" alt="image" />
+                </div>
+                
+                <h2 style="text-align:center;">
+                     2 tickets to super awesome fest
+                </h2>
+                   
+               <br/>
+                <h3 style="text-align:center;">
+                     Check your email for details on how to claim your prize!
+                </h3>
+ 
+              
+            </div>
+        </div>
+             <div data-role="page" id="won2" data-theme="a">
+            <div data-role="content" style="padding: 15px">
+                
+                    <h2 style="text-align:center;">YOU WON!!</h2>
+                
+                <div style="width: 256px; height: 256px; margin-left:auto; margin-right:auto;">
+               	 <img src="img/beer-icon.png" alt="image" />
+                </div>
+                <h2 style="text-align:center;">
+                     One $1 pint at the Copperhog!!
+                </h2>
+                   
+               <br/>
+                <h3 style="text-align:center;">Check your email for details on how to redeem your beer!</h3>
+                
+               
+            </div>
+        </div>
+             <div data-role="page" id="lost" data-theme="a">
+            <div data-role="content" style="padding: 15px">
+                <div style="width: 288px; height: 200px; margin-left:auto; margin-right:auto;">
+                    <h2 style="text-align:center;">Just Missed It!</h2>
+                </div>
+                <br/>
+                <h2 style="text-align:center;">
+                     Boooo! You didn't win this time but keep reading <b><i>Whats Up!</i></b> and try again next month!
+                </h2>
+                   
+                
+            </div>
+        </div>
+        
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>
