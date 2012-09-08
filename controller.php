@@ -11,8 +11,8 @@ define("LOSE", 0);
 define("WIN_1", 1);
 define("WIN_2", 2);
 
-$primary_win_interval = 3;
-$secondary_win_interval = 2;
+$primary_win_interval = 50;
+$secondary_win_interval = 25;
 
 $secondary_win_code = "fat_fingers_55";
 

@@ -9,8 +9,6 @@ if(!isset($source))
 $raffle_id = 1;
 
 
-$concert_title = 'K. Flay & Wishbone on Sept. 28 at the Wild Buffalo. 9pm';
-
 // <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 
 //    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
@@ -57,7 +55,7 @@ $concert_title = 'K. Flay & Wishbone on Sept. 28 at the Wild Buffalo. 9pm';
 
 
 	        	$.ajax({
-	        		url: "http://copperhog.nfshost.com/controller.php?email="+email+"&raffle_id="+raffle_id+"&source=<?php echo $source; ?>&rand="+Math.round(Math.random()*100000000),
+	        		url: "http://copperhog.nfshost.com/controller.php?email="+email+"&raffle_id="+raffle_id+"&source=<?php echo $source; ?>",
 	        		dataType: 'json',
 	        		success: function(data, textStatus, jqXHR)
 	        		{
@@ -245,19 +243,18 @@ function testEmail(testEmail)
         <!-- Home -->
         <div data-role="page" id="landing" data-theme="a">
             <div data-role="content" style="padding: 15px">
-                <div style="width: 267px; height: 269px; margin-left:auto; margin-right:auto;">
-                    <img src="img/the_hog_small.png" alt="image" />
+                <div style="width: 288px; height: 200px; margin-left:auto; margin-right:auto;">
+                    <img src="img/landing_main.png" alt="image" />
                 </div>
-                <br/>
-                <h2 style="text-align:center;color:#FFFF85;">
-                     <?php echo $concert_title;?>
+                <h2 style="text-align:center;">
+                     2 tickets to super awesome fest
                 </h2>
                    <div style="width: 128px; height: 128px; margin-left:auto; margin-right:auto;">
                	 <img src="img/icon_tickets.png" alt="image" />
                 </div>
    
                 <div data-role="fieldcontain" style="text-align:center;">
-    				<h3 style="text-align:center;">Enter to win with your email</h3>
+    				<h3 style="text-align:center;">Enter once a month with your email</h3>
     				<input type="email" name="email" id="email" value=""  data-theme="d"/>
 				 <br/>
 				 <input type="submit" onClick="enterManual();" data-icon="check" data-iconpos="left" value="Enter with Email" data-theme="e"/>
@@ -323,7 +320,7 @@ function testEmail(testEmail)
                
                 <br/>
                 <h2 style="text-align:center;">
-                Boooo! You didn't win this time but make sure to try again next month!
+                     Boooo! You didn't win this time but keep reading <b><i>Whats Up!</i></b> and try again next month!
                 </h2>
                    
                 <hr/>
