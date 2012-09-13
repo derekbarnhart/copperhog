@@ -11,7 +11,8 @@ if(!isset($source))
 
 $raffle_id = 1;
 $concert_title = 'K. Flay & Wishbone on Sept. 28 at the Wild Buffalo. 9pm';
-
+//$webservice =  'http://copperhog.nfshost.com/controller.php';
+$webservice =  'http://kodely.nfshost.com/copperhog/controller.php';
 
 ?>
 
@@ -51,7 +52,7 @@ $concert_title = 'K. Flay & Wishbone on Sept. 28 at the Wild Buffalo. 9pm';
 
 
 	        	$.ajax({
-	        		url: "http://copperhog.nfshost.com/controller.php?email="+email+"&raffle_id="+raffle_id+"&source=<?php echo $source; ?>&rand="+Math.round(Math.random()*100000000),
+	        		url: "<?php echo $webservice;?>?email="+email+"&raffle_id="+raffle_id+"&source=<?php echo $source; ?>&rand="+Math.round(Math.random()*100000000),
 	        		dataType: 'json',
 	        		success: function(data, textStatus, jqXHR)
 	        		{
