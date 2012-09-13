@@ -7,7 +7,14 @@ class DB
 
 	function __construct()
 	{
-		 $this->db = new PDO("mysql:host=kodely.db;dbname=copperhog","derekbarnhar","db618273");	
+           $file = 'config.ini';
+
+           if (!$settings = parse_ini_file($file, TRUE)) throw new exception('Unable to open ' . $file . '.');
+
+		 $this->db = new PDO("mysql:host=".
+		 $settings['staging']['db_host'].";dbname=".$settings['staging']['db_dbname'],
+		 $settings['staging']['db_username'],
+		 $settings['staging']['db_password']);
 	}
 		
 	function createScan($email,$raffleId,$ip,$source)
