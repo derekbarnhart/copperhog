@@ -6,19 +6,13 @@ if(!isset($source))
 {
 	$source="unknown";
 }
+
+//TODO need to fix this to be dynamic
+
 $raffle_id = 1;
-
-
 $concert_title = 'K. Flay & Wishbone on Sept. 28 at the Wild Buffalo. 9pm';
 
-// <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 
-//    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
-         //    </script>
-           //  <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile-1.1.0.min.js">
-             //</script>
-//
-//
 ?>
 
 <!DOCTYPE html>
